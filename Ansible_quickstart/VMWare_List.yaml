@@ -1,0 +1,10 @@
+- name: VMware List online VMs playbook
+  hosts: local
+  tasks:
+   - name: List online VMs for VMware Workstation
+     ansible.builtin.command: /../../mnt/c/Program\ Files\ \(x86\)/VMware/VMware\ Workstation/vmrun.exe -T ws list
+     register: cmd_result
+
+   - name: Display result for debug
+     debug:
+       var: cmd_result.stdout
