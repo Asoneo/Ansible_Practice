@@ -42,3 +42,14 @@ Two Ubuntu VM on VMWare Workstation connected via bridge network
 ## Installing Ansible
 
 The actual installation is very well documented, you can find it [here](https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html)
+
+Simple installation `sudo pipx install --include-deps ansible`
+> [!NOTE]
+> Make sure you are root when using Ansible
+
+## Running Ansible Playbook
+Inventory can be both yml or ini file ([doc](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html))
+
+To run playbook with inventory of local host, use `localhost Ansible_connection=local` in the inventory file
+
+Run Playbook : `ansible-playbook playbook.yml -i inventory.ini`
