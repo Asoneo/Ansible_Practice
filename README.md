@@ -43,12 +43,22 @@ Two Ubuntu VM on VMWare Workstation connected via bridge network
 
 The actual installation is very well documented, you can find it [here](https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html)
 
-Simple installation `sudo pipx install --include-deps ansible`
+Simple installation `pipx install --include-deps ansible`
 > [!NOTE]
 > Make sure you are root when using Ansible
 
+## Installing OpenSSH
+
+Ansible uses an agentless ssh connection when executing a task. For this to work we need to install an SSH server to our node, in my case I chose OpenSSH for it's ease to install and configure.
+
+To install OpenSSh simply use the command  `sudo apt install openssh-server` ans open port 22 with `sudo ufw allow 22`
+
+We then need to create our ssh key with `ssh-keygen` and bla bla [TODO] Finish writing after making sure to know how this works
+
 ## Running Ansible Playbook
 Inventory can be both yml or ini file ([doc](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html))
+
+To build my inventory, I used an ini file, in order to avoid having raw ip addresses in my inventory file, I added the ip address of my node in my /etc/hosts file. 
 
 To run playbook with inventory of local host, use `localhost Ansible_connection=local` in the inventory file
 
