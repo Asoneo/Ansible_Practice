@@ -10,6 +10,16 @@ Practice project for learning Ansible, the main objective is to control other ma
 
 Two Ubuntu VM on VMWare Workstation connected via bridge network
 
+## Using outdated certs
+
+>[!NOTE]
+>This part is completely useless, just typing my frustruation since it's a problem just so unlikely to happen that I can't believe it happened to me and it delayed my work for hours for basically nothing. And in the end it was revealed that there was a new CVE released today (06/03/2026). [TODO] : Finish
+
+Context : I was building my VMs from an iso of Ubuntu version 24.04.3 (very important to remember) and everything was fine until 04/03/2026 (also very important for the context). The issue was with my certificates, some of the certs issued by ubuntu were not trusted anymore, so I needed to install newer version of the certification list to be able to download packages.
+
+- download the new certification list [here](http://archive.ubuntu.com/ubuntu/pool/main/c/ca-certificates/) (just take the latest .deb file)
+- use `dpkg -i ca-certificates*.deb`
+
 ## Adding certification to linux
 
 > [!NOTE]
